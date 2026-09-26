@@ -1,0 +1,368 @@
+{
+  "method": "TF-IDF + shared deterministic routing, offline synthetic smoke benchmark (not an independent generalization estimate)",
+  "cases": 40,
+  "top_1": {
+    "correct": 20,
+    "total": 20,
+    "rate": 1.0
+  },
+  "top_2": {
+    "correct": 20,
+    "total": 20,
+    "rate": 1.0
+  },
+  "unsupported_detection": {
+    "correct": 8,
+    "total": 8,
+    "rate": 1.0
+  },
+  "sensitive_routing": {
+    "correct": 9,
+    "total": 9,
+    "rate": 1.0
+  },
+  "failures": [],
+  "results": [
+    {
+      "question": "What is the annual PTO allowance?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Do weekends count toward paid time off?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Who approves PTO requests?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Do pending PTO requests reserve hours?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "How many hours are in a PTO day?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Does the PTO policy include a holiday calendar?",
+      "expected": "supported",
+      "source": "pto",
+      "predicted": "supported",
+      "sources": [
+        "pto"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What is the parental leave policy?",
+      "expected": "supported",
+      "source": "parental",
+      "predicted": "supported",
+      "sources": [
+        "parental"
+      ],
+      "passed": true
+    },
+    {
+      "question": "How many weeks of paid parental leave are described?",
+      "expected": "supported",
+      "source": "parental",
+      "predicted": "supported",
+      "sources": [
+        "parental"
+      ],
+      "passed": true
+    },
+    {
+      "question": "When should People Operations be contacted about parental leave?",
+      "expected": "supported",
+      "source": "parental",
+      "predicted": "supported",
+      "sources": [
+        "parental"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What does the handbook say about parental leave dates?",
+      "expected": "supported",
+      "source": "parental",
+      "predicted": "supported",
+      "sources": [
+        "parental"
+      ],
+      "passed": true
+    },
+    {
+      "question": "How many weeks can I take after having a baby?",
+      "expected": "escalate",
+      "note": "Personal eligibility wording intentionally routes to a human; lexical similarity must not bypass this rule.",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What should I do on my first day?",
+      "expected": "supported",
+      "source": "onboarding",
+      "predicted": "supported",
+      "sources": [
+        "onboarding"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What should I complete in week one?",
+      "expected": "supported",
+      "source": "onboarding",
+      "predicted": "supported",
+      "sources": [
+        "onboarding"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Where is the onboarding checklist?",
+      "expected": "supported",
+      "source": "onboarding",
+      "predicted": "supported",
+      "sources": [
+        "onboarding"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Who helps when a new employee account is missing?",
+      "expected": "supported",
+      "source": "onboarding",
+      "predicted": "supported",
+      "sources": [
+        "onboarding"
+      ],
+      "passed": true
+    },
+    {
+      "question": "When do I complete security training?",
+      "expected": "supported",
+      "source": "onboarding",
+      "predicted": "supported",
+      "sources": [
+        "onboarding"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What equipment does the company provide?",
+      "expected": "supported",
+      "source": "remote",
+      "predicted": "supported",
+      "sources": [
+        "remote"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Can employees work remotely?",
+      "expected": "supported",
+      "source": "remote",
+      "predicted": "supported",
+      "sources": [
+        "remote"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What happens before a change of state or country?",
+      "expected": "supported",
+      "source": "remote",
+      "predicted": "supported",
+      "sources": [
+        "remote"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Who handles equipment problems?",
+      "expected": "supported",
+      "source": "remote",
+      "predicted": "supported",
+      "sources": [
+        "remote"
+      ],
+      "passed": true
+    },
+    {
+      "question": "Should I share passwords with the assistant?",
+      "expected": "supported",
+      "source": "remote",
+      "predicted": "supported",
+      "sources": [
+        "remote"
+      ],
+      "passed": true
+    },
+    {
+      "question": "What does our dental plan cover?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Can PTO carry over into next year?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What is the price of bitcoin?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What is the office lunch menu?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Does the company match retirement contributions?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "How much is the parking reimbursement?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What is the pet insurance policy?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "How many bereavement days do we receive?",
+      "expected": "unsupported",
+      "predicted": "unsupported",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Am I eligible for parental leave?",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "I have a medical concern",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "How can I report harassment?",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Tell me Jordan PTO balance",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What is my colleague salary?",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Can I take unpaid leave?",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "I need an accommodation",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "Please approve an exception",
+      "expected": "escalate",
+      "predicted": "escalate",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "What is my PTO balance?",
+      "expected": "ledger",
+      "predicted": "ledger",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "How do I request time off?",
+      "expected": "request",
+      "predicted": "request",
+      "sources": [],
+      "passed": true
+    },
+    {
+      "question": "How much PTO do I have?",
+      "expected": "ledger",
+      "predicted": "ledger",
+      "sources": [],
+      "passed": true
+    }
+  ]
+}
