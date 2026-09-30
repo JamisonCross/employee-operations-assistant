@@ -1,30 +1,12 @@
 # Employee Operations Assistant
 
-## Version 2: a calmer employee workspace
-
-![Cedar employee workspace](docs/screenshots/overview.jpg)
-
-- Sage, cream and lavender workspace, serif welcome area, PTO summary, and a question-centered layout distinct from the sales and analytics apps.
-- Prominent, expandable citations include handbook title, version and the exact supporting passage. Only sources actually cited are returned with a generated answer.
-- A visible boundary diagram separates read-only answers from ledger access, reservations and human review.
-- Retrieval and routing now live in separate pure modules. The API and benchmark use the same routing controls. Known unsupported handbook subjects escalate rather than matching broad words such as “company” or “PTO.”
-- **22 automated tests passed** on Python 3.13, including existing concurrency/access tests and end-to-end benchmark/citation checks. Ruff lint/format and JavaScript syntax checks pass; browser checks covered citations, reservations, reviewer approval, and desktop/phone layouts.
-
-### Reproducible retrieval evaluation
-
-```sh
-python -m evals.retrieval_eval
-```
-
-The checked-in [40-question benchmark](evals/policy_questions.json) includes 20 supported policy questions, 8 unsupported questions, 9 sensitive/ambiguous/private questions, and 3 ledger/workflow questions. Current measured results: top-1 **20/20**, top-2 **20/20**, unsupported detection **8/8**, sensitive routing **9/9**. [Full results and per-case output](evals/results.json).
-
-These are curated regression results, **not independent generalization accuracy**. Routing rules were improved using this suite. Personal “can I take” wording intentionally escalates rather than deciding eligibility; those cases are scored as routing, not retrieval. The suite tests retrieval and routing, not generated-answer faithfulness. New paraphrases and novel unsupported subjects can still fail.
-
-Embedding comparison was deliberately deferred: the five-section corpus currently needs no model download, vector database, new provider or large ML dependency. No claim that lexical retrieval equals or beats embeddings is made. A future experiment should freeze an independently authored question set, compare recall and abstention at separately tuned thresholds, and report latency/cost alongside accuracy.
-
 A small employee self-service tool for a fictional company. Ask a handbook question, check your own PTO balance, submit time off, and switch to a People reviewer to finish the workflow.
 
 I built this around a common bottleneck: routine employee questions and requests that interrupt a People team. The interesting part is the boundary between answering a question and taking an action. The assistant can explain a policy; application code controls access, reservations and approvals.
+
+**Demo:** fictional employees and handbook, local role switching, and mock HR requests. Runs without an API key; optional AI generation adds answers grounded in retrieved passages.
+
+![Cedar employee workspace](docs/screenshots/overview.jpg)
 
 ## Try it locally
 
@@ -71,6 +53,18 @@ Set `OPENAI_API_KEY` in your terminal environment before starting the server. `O
 
 Without a key, answers show retrieved excerpts and the UI says **Local retrieval**. API errors, refusals, incomplete responses and invalid citations fall back to excerpts. The integration uses the [Responses API Structured Outputs format](https://developers.openai.com/api/docs/guides/structured-outputs). Model output is never used to execute or approve an action.
 
+## Retrieval evaluation
+
+```sh
+python -m evals.retrieval_eval
+```
+
+The checked-in [40-question benchmark](evals/policy_questions.json) includes 20 supported policy questions, 8 unsupported questions, 9 sensitive/ambiguous/private questions, and 3 ledger/workflow questions. Current measured results: top-1 **20/20**, top-2 **20/20**, unsupported detection **8/8**, sensitive routing **9/9**. [Full results and per-case output](evals/results.json).
+
+These are curated regression results, **not independent generalization accuracy**. Routing rules were improved using this suite. Personal “can I take” wording intentionally escalates rather than deciding eligibility; those cases are scored as routing, not retrieval. The suite tests retrieval and routing, not generated-answer faithfulness. New paraphrases and novel unsupported subjects can still fail.
+
+Embedding comparison was deliberately deferred: the five-section corpus currently needs no model download, vector database, new provider or large ML dependency. No claim that lexical retrieval equals or beats embeddings is made. A future experiment should freeze an independently authored question set, compare recall and abstention at separately tuned thresholds, and report latency/cost alongside accuracy.
+
 ## Validation
 
 ```sh
@@ -92,3 +86,7 @@ All non-PTO approvals mean **human follow-up acknowledged**, never a determinati
 No measured workplace savings are claimed. A pilot should measure repeated questions resolved, successful task completion, time to human review and incorrect-answer rate before claiming ROI.
 
 Runtime data is stored in ignored `runtime/`. Set `APP_DB` to a new local path to start a separate demo. Sessions expire after one hour and reset when the server restarts. Only synthetic fixtures belong in this repository.
+
+## Project updates
+
+See [the changelog](docs/CHANGELOG.md) for interface and engineering updates.
